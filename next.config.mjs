@@ -4,6 +4,7 @@ const basePath = process.env.NODE_ENV === "production" ? "/central-restaurant-co
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
   basePath,
   images: {
     unoptimized: true
