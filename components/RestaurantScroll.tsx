@@ -115,7 +115,8 @@ export const RestaurantScroll: React.FC = () => {
   // Format frame filename
   const getFrameUrl = (index: number) => {
     const frameNum = String(index + 1).padStart(4, "0");
-    return `/frames/central_frame_${frameNum}.webp`;
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+    return `${basePath}/frames/central_frame_${frameNum}.webp`;
   };
 
   /**
@@ -676,16 +677,14 @@ export const RestaurantScroll: React.FC = () => {
                     title={sec.headline}
                   >
                     <div
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        isActive
+                      className={`h-2 rounded-full transition-all duration-300 ${isActive
                           ? "w-6 sm:w-8 bg-[#508ef2] shadow-[0_0_10px_#508ef2]"
                           : "w-2 bg-white/20 group-hover:bg-white/50"
-                      }`}
+                        }`}
                     />
                     <span
-                      className={`hidden lg:inline text-[9px] font-mono tracking-widest uppercase transition-colors ${
-                        isActive ? "text-white/90" : "text-white/30 group-hover:text-white/60"
-                      }`}
+                      className={`hidden lg:inline text-[9px] font-mono tracking-widest uppercase transition-colors ${isActive ? "text-white/90" : "text-white/30 group-hover:text-white/60"
+                        }`}
                     >
                       0{idx + 1}
                     </span>
